@@ -31,18 +31,14 @@ import {
   Sparkles
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import profileImg from "./assets/profile.jpeg";
-import sihImg from "./assets/sih2025.jpeg";
-import presentationImg from "./assets/presentation.jpeg";
-import gasAndFireImg from "./assets/gas_and_fire.jpeg";
-import aptbotImg from "./assets/aptbot.jpeg";
 
+// Use absolute paths for public folder assets
 const IMAGES = {
-  profile: profileImg,
-  sih: sihImg,
-  presentation: presentationImg,
-  aptBotInternal: gasAndFireImg,
-  aptBotFront: aptbotImg,
+  profile: "/profile.jpeg",
+  sih: "/sih2025.jpeg",
+  presentation: "/presentation.jpeg",
+  aptBotInternal: "/gas_and_fire.jpeg",
+  aptBotFront: "/aptbot.jpeg",
 };
 
 // Helper for image fallbacks
