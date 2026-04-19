@@ -31,25 +31,31 @@ import {
   Sparkles
 } from "lucide-react";
 import { useState, useEffect } from "react";
+import profileImg from "./assets/profile.jpeg";
+import sihImg from "./assets/sih2025.jpeg";
+import presentationImg from "./assets/presentation.jpeg";
+import gasAndFireImg from "./assets/gas_and_fire.jpeg";
+import aptbotImg from "./assets/aptbot.jpeg";
 
 const IMAGES = {
-  profile: `${import.meta.env.BASE_URL}profile.jpeg`,
-  sih: `${import.meta.env.BASE_URL}sih2025.jpeg`,
-  presentation: `${import.meta.env.BASE_URL}presentation.jpeg`,
-  aptBotInternal: `${import.meta.env.BASE_URL}gas_and_fire.jpeg`,
-  aptBotFront: `${import.meta.env.BASE_URL}aptbot.jpeg`,
+  profile: profileImg,
+  sih: sihImg,
+  presentation: presentationImg,
+  aptBotInternal: gasAndFireImg,
+  aptBotFront: aptbotImg,
 };
 
 // Helper for image fallbacks
 const ImageWithFallback = ({ src, alt, className, ...props }: any) => {
-  const [error, setError] = useState(false);
-  
   return (
     <img 
-      src={error ? `https://picsum.photos/seed/${alt.replace(/\s+/g, '-').toLowerCase()}/800/800` : src} 
+      src={src} 
       alt={alt} 
       className={className}
-      onError={() => setError(true)}
+      onError={(e) => {
+        const target = e.target as HTMLImageElement;
+        target.src = `https://picsum.photos/seed/${alt.replace(/\s+/g, '-').toLowerCase()}/800/800`;
+      }}
       referrerPolicy="no-referrer"
       {...props}
     />
