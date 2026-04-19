@@ -24,10 +24,10 @@ import {
 import { useState, useEffect } from "react";
 
 const IMAGES = {
-  profile: "professional photo of myself.jpeg",
+  profile: "profile.jpeg",
   sih: "sih2025.jpeg",
   presentation: "presentation.jpeg",
-  aptBotInternal: "gas and fire dectector.jpeg",
+  aptBotInternal: "gas_and_fire.jpeg",
   aptBotFront: "aptbot.jpeg",
 };
 
