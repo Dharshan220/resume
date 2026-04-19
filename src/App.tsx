@@ -19,16 +19,25 @@ import {
   Briefcase,
   Trophy,
   Phone,
-  Home as HomeIcon
+  Home as HomeIcon,
+  Terminal,
+  FileCode,
+  Wifi,
+  CircuitBoard,
+  Microchip,
+  Monitor,
+  GitBranch,
+  Bot,
+  Sparkles
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const IMAGES = {
-  profile: "profile.jpeg",
-  sih: "sih2025.jpeg",
-  presentation: "presentation.jpeg",
-  aptBotInternal: "gas_and_fire.jpeg",
-  aptBotFront: "aptbot.jpeg",
+  profile: `${import.meta.env.BASE_URL}profile.jpeg`,
+  sih: `${import.meta.env.BASE_URL}sih2025.jpeg`,
+  presentation: `${import.meta.env.BASE_URL}presentation.jpeg`,
+  aptBotInternal: `${import.meta.env.BASE_URL}gas_and_fire.jpeg`,
+  aptBotFront: `${import.meta.env.BASE_URL}aptbot.jpeg`,
 };
 
 // Helper for image fallbacks
@@ -219,11 +228,19 @@ export default function App() {
               <h3 className="text-2xl mb-8 flex items-center gap-3">
                 <Cpu className="text-brand-accent" /> Technical Skills
               </h3>
-              <div className="grid grid-cols-2 gap-6">
-                {["C Programming", "Python (Basics)", "Arduino & IoT", "Embedded Systems", "VLSI (Basics)"].map((skill) => (
-                  <div key={skill} className="flex items-center gap-2 group">
-                    <div className="w-2 h-2 rounded-full bg-brand-accent group-hover:scale-150 transition-transform" />
-                    <span className="text-brand-ink/80">{skill}</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[
+                  { name: "C Programming", icon: Terminal },
+                  { name: "Python (Basics)", icon: FileCode },
+                  { name: "Arduino & IoT", icon: Wifi },
+                  { name: "Embedded Systems", icon: CircuitBoard },
+                  { name: "VLSI (Basics)", icon: Microchip }
+                ].map((skill) => (
+                  <div key={skill.name} className="flex items-center gap-4 group">
+                    <div className="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-all duration-300">
+                      <skill.icon size={20} />
+                    </div>
+                    <span className="text-brand-ink/80 font-medium">{skill.name}</span>
                   </div>
                 ))}
               </div>
@@ -239,11 +256,18 @@ export default function App() {
               <h3 className="text-2xl mb-8 flex items-center gap-3">
                 <Code className="text-brand-accent" /> Tools & Technologies
               </h3>
-              <div className="grid grid-cols-2 gap-6">
-                {["Arduino IDE", "VS Code", "Git & GitHub", "AI TOOLS (eg: Claude, Cursor, etc.)"].map((tool) => (
-                  <div key={tool} className="flex items-center gap-2 group">
-                    <div className="w-2 h-2 rounded-full bg-brand-accent group-hover:scale-150 transition-transform" />
-                    <span className="text-brand-ink/80">{tool}</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[
+                  { name: "Arduino IDE", icon: Cpu },
+                  { name: "VS Code", icon: Monitor },
+                  { name: "Git & GitHub", icon: GitBranch },
+                  { name: "AI TOOLS", icon: Bot }
+                ].map((tool) => (
+                  <div key={tool.name} className="flex items-center gap-4 group">
+                    <div className="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-all duration-300">
+                      <tool.icon size={20} />
+                    </div>
+                    <span className="text-brand-ink/80 font-medium">{tool.name}</span>
                   </div>
                 ))}
               </div>
